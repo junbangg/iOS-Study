@@ -7,6 +7,7 @@
     - 왜 Thread-Safe 할까요?
 - 상속이 안된다
 - Copy-on-Write
+- memberwise 생성자
 
 ### Class
 - 참조타입
