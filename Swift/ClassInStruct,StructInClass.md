@@ -76,6 +76,119 @@ print(structInstanceCopy.classInstance.number) // 0
 
 <br/>
 
+### 연결리스트 실험
+```swift
+import UIKit
+
+class Node<T> {
+    var data: T
+    var next: Node?
+    
+    init(data: T) {
+        self.data = data
+    }
+}
+
+//class LinkedList<T> {
+//    var head: Node<T>? // 1 2
+//    var tail: Node<T>? // 1 2
+//
+//    var firstNode: Node<T>? {
+//        return head
+//    }
+//
+//    var isEmpty: Bool {
+//        return head == nil
+//    }
+//
+//    func append(_ data: T) {
+//        let newNode = Node(data: data)
+//
+//        if isEmpty {
+//            head = newNode
+//        } else {
+//            tail?.next = newNode
+//        }
+//        tail = newNode
+//    }
+//
+//    func removeFirst() -> T? {
+//        let node = head
+//        head = node?.next
+//
+//        return node?.data
+//    }
+//
+//    func removeAll() {
+//        head = nil
+//    }
+//}
+//
+///// CLASS 실험
+//let linkedList = LinkedList<Int>()
+//
+//linkedList.append(1)
+//linkedList.append(2)
+//linkedList.append(3)
+//
+//print(CFGetRetainCount(linkedList.head)) // 3 -> 2
+//print(CFGetRetainCount(linkedList.tail)) // 3 -> 3
+//
+//let linkedListCopy = linkedList
+//print("복사 후")
+//print(CFGetRetainCount(linkedListCopy.head)) // 2
+//print(CFGetRetainCount(linkedListCopy.tail)) // 3
+
+struct LinkedList<T> {
+    var head: Node<T>?
+    var tail: Node<T>?
+
+    var firstNode: Node<T>? {
+        return head
+    }
+
+    var isEmpty: Bool {
+        return head == nil
+    }
+
+    mutating func append(_ data: T) {
+        let newNode = Node(data: data)
+
+        if isEmpty {
+            head = newNode
+        } else {
+            tail?.next = newNode
+        }
+        tail = newNode
+    }
+
+    mutating func removeFirst() -> T? {
+        let node = head
+        head = node?.next
+
+        return node?.data
+    }
+
+    mutating func removeAll() {
+        head = nil
+    }
+}
+
+// Struct 실험
+var linkedList = LinkedList<Int>()
+linkedList.append(1)
+linkedList.append(2)
+linkedList.append(3)
+print(CFGetRetainCount(linkedList.head)) // 2
+print(CFGetRetainCount(linkedList.tail)) // 3
+
+print("복사 후")
+var linkedListCopy = linkedList
+print(CFGetRetainCount(linkedListCopy.head)) // 3
+print(CFGetRetainCount(linkedListCopy.tail)) // 4
+
+```
+
 
 ### 참고
 
