@@ -25,7 +25,8 @@ ARC(Automatic Reference Counting) 는 자동으로 메모리를 관리해주는 
 (reference count 가 0개가 될 수 없기 때문에)
 
 ### 해결 방안
-클래스 간의 관계를 strong 이 아닌 weak, unowned 로 지정. 그럼 순환참조 없이 인스턴스들이 서로 참조 할 수 있다.
+클래스 간의 관계를 strong 이 아닌 `weak`, `unowned` 로 지정. 그럼 순환참조 없이 인스턴스들이 서로 참조 할 수 있다.
 
 # 참고자료
-클래스의 새로운 인스턴스를 만들 때 ARC 가 메모리 할당을 해준다. 그리고 인스턴스가 더 이상 사용 되지 않는다고 판단 할 때(참조 카운팅이 0일 때) 메모리를 해제한다. 
+https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html
+https://cozzin.tistory.com/81
