@@ -8,11 +8,15 @@ Swift에서는 **Static Dispatch와 Dynamic Dispatch**  두 가지 방식이 �
 
 즉, 호출할 함수를 **"컴파일 타임"에 결정**하느냐, **"런타임"에 결정**하냐에 따른 방식이다.
 
+<br/>
+
 ## Static Dispatch(Direct Call)
 
 **"컴파일 타임"에 호출될 함수를 결**정하여, **런타임 때 그대로 실행**한다.
 
 컴파일 타임에 결정이 되기 때문에 **성능상 이점**을 가질 수 있다.
+
+<br/>
 
 ## Dynamic Dispatch(Indirect Call)
 
@@ -23,6 +27,8 @@ Swift에서는 **클래스마다 함수 포인터들의 배열인 vTable(Virtua
 하위 클래스가 메서드를 호출할 때, 이 vTable을 참조하여 실제 호출할 함수를 결정한다.
 
 이 과정들이 "런타임"에 이루어지기 때문에 **성능상 손해**를 보게 된다.
+
+<br/>
 
 ## Reference Type의 Dispatch
 
@@ -54,13 +60,17 @@ Reference Type의 클래스는 **상속의 가능성**이 있다.
 
 따라서 A라는 파일에서 Human 클래스를 정의했다면, 모듈 전체 파일을 확인하며 Human 클래스를 상속받는 클래스 혹은 해당 클래스의 메서드, 프로퍼티를 오버라이딩 하는  클래스가 있는지를 알아서 확인하고, 만약 아무곳에서도 상속(오버라이딩)하지 않으면 내부적으로 final을 붙여서 **Static Dispatch**로 동작하게끔 하는 것이다.
 
+<br/>
+
 ## Value Type의 Dispatch
 
 Valye Type인 **구조체, 열거형은 상속을 할 수 없다**는 특징 때문에 오버라이딩이 될 가능성이 없으므로 **Static Dispatch를 사용**한다.
 
 런타임에 따로 추적할 필요가 없으므로 **컴파일 타임에 결정**이 된다.
 
-참고:
+<br/>
+
+### 참고:
 
 [https://babbab2.tistory.com/143](https://babbab2.tistory.com/143)
 
