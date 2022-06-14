@@ -30,4 +30,5 @@ ARC(Automatic Reference Counting) 는 자동으로 메모리를 관리해주는 
 
 # 참고자료
 https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html
+
 https://cozzin.tistory.com/81
