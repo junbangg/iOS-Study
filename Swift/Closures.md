@@ -102,5 +102,7 @@ struct SomeStruct {
 
 # 참고 자료
 https://docs.swift.org/swift-book/LanguageGuide/Closures.html
+<br>
 https://ko.wikipedia.org/wiki/%EC%9D%BC%EA%B8%89_%EA%B0%9D%EC%B2%B4
+<br>
 https://seolhee2750.tistory.com/117
