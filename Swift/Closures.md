@@ -47,6 +47,8 @@ reversedNames = names.sorted(by: >)
 - 원본 값이 사라져도 클로저의 body 안 에서 그 값을 활용할 수 있다.
 
 ```swift
+let incrementByTen = makeIncrementer(forIncrement: 10)
+
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     var runningTotal = 0
     
