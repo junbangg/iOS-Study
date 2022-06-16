@@ -98,7 +98,7 @@ struct SomeStruct {
 그래서 스위프트는 `Capture List`를 이용해서 강한 참조를 해결할 수 있다.
 
 # 궁금한 점
-- 스위프트는 타입 추측을 어떻게 할까?
+- 스위프트는 타입 추론을 어떻게 할까?
 
 # 참고 자료
 https://docs.swift.org/swift-book/LanguageGuide/Closures.html
