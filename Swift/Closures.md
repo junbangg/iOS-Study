@@ -22,12 +22,12 @@ reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 ```
 여기서 
 - 클로져의 파라미터는 `inout` 일 수는 있지만, 기본값은 갖을 수가 없다.
-- variadic parameter 를 사용할 수 있다.(이름을 정해야한다)
+- variadic parameter(가변 인자) 를 사용할 수 있다.(이름을 정해야한다)
 - `in` 키워드는 클로져의 선언부는 끝나고 body가 시작한다는 의미
 ```swift
 reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
 ```
-메서드의 파라미터로 클로져가 들어가기 때문에 타입은 생략이 가능하다.
+메서드의 파라미터로 클로져가 들어가기 때문에 타입은 생략이 가능하다.(스위프트가 타입 추론을 해주기 때문에)
 ```swift
 reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 ```
