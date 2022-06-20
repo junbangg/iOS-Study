@@ -92,9 +92,27 @@ value 를 수정하면서 읽기가 안됨
 이런 `Data Race` 를 기본으로 해결하고 싶다
 즉, 동시성 버그를 막고싶다
 <img width="693" alt="Screen Shot 2022-06-20 at 4 51 40 PM" src="https://user-images.githubusercontent.com/33091784/174552076-bfc76d20-cab0-4f82-b36a-3521517027b1.png">
+스위프트에서 위와 같은 상황을 막는다. 동기화 없이 값 수정 못하게 막는다.
+이런 문제를 `Actor` 로 해결했었음.
 
+**distributed actor**
+다른 machine 에 있는 `Actor`
 
+"Eliminate data races using Swift Concurrency" 세션 보기
+<img width="693" alt="Screen Shot 2022-06-20 at 4 53 21 PM" src="https://user-images.githubusercontent.com/33091784/174552383-396ad296-1932-49c5-bf98-83a20dafefe3.png">
 
+### Async Algorithms Package
+
+<img width="693" alt="Screen Shot 2022-06-20 at 4 55 34 PM" src="https://user-images.githubusercontent.com/33091784/174552840-62218d04-6ebd-4661-b5cc-45b1ede4a001.png">
+<img width="693" alt="Screen Shot 2022-06-20 at 4 55 46 PM" src="https://user-images.githubusercontent.com/33091784/174552875-2825c2e1-677d-4172-94e2-3ea08e448469.png">
+<img width="693" alt="Screen Shot 2022-06-20 at 4 56 12 PM" src="https://user-images.githubusercontent.com/33091784/174552951-6b275e4f-bc7e-4bb1-b019-86e01be8c020.png">
+- Actor Prioritization: Actor의 우선순위 부여ㅑ
+- Priority-inversion avoidation: 덜 중요한게 더 중요한 일을 막지 못하는 기능
+- 
+## Instruments에 Swift Concurrency 툴 추가
+<img width="693" alt="Screen Shot 2022-06-20 at 4 57 02 PM" src="https://user-images.githubusercontent.com/33091784/174553083-f00ef4f3-2b6f-4eb9-a55d-5cbf93084279.png">
+
+"Visualize and optimize Swift Concurrency"
 
 # Expressive Swift
 
