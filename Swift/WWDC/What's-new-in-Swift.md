@@ -116,3 +116,6 @@ value 를 수정하면서 읽기가 안됨
 
 # Expressive Swift
 
+<img width="693" alt="Screen Shot 2022-06-20 at 4 59 29 PM" src="https://user-images.githubusercontent.com/33091784/174553525-b0f96929-d170-4d75-9cb8-c9ee954fa7b1.png">
+
+`if let`, `guard let`  할때 보통 같은 이름의 변수/상수 에 부여를 하는데, 너무 길어질때가 있다
