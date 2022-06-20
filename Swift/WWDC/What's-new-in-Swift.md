@@ -115,7 +115,65 @@ value 를 수정하면서 읽기가 안됨
 "Visualize and optimize Swift Concurrency"
 
 # Expressive Swift
-
+## Optional Unwrapping syntax 추가
 <img width="693" alt="Screen Shot 2022-06-20 at 4 59 29 PM" src="https://user-images.githubusercontent.com/33091784/174553525-b0f96929-d170-4d75-9cb8-c9ee954fa7b1.png">
 
-`if let`, `guard let`  할때 보통 같은 이름의 변수/상수 에 부여를 하는데, 너무 길어질때가 있다
+`if let`, `guard let`  할때 보통 같은 이름의 변수/상수 에 부여를 하는데, 이름이 너무 길어질때가 있다.
+근데 이름을 수정하거나 줄이면 가독성이 저하되기 때문에 스위프트 5.7부터는 다음 syntax 제공
+<img width="693" alt="Screen Shot 2022-06-20 at 5 02 26 PM" src="https://user-images.githubusercontent.com/33091784/174554099-1daa4d09-27ee-4a3a-942a-dd284cd7f843.png">
+
+## 
+`C` 와 다르게 다른 타입의 포인터 할당은 안됨
+
+<img width="693" alt="Screen Shot 2022-06-20 at 5 03 49 PM" src="https://user-images.githubusercontent.com/33091784/174554373-450e0cb7-f473-4d1c-a080-2b3f8c63bf23.png">
+<img width="693" alt="Screen Shot 2022-06-20 at 5 04 59 PM" src="https://user-images.githubusercontent.com/33091784/174554563-482b6f75-8543-4d8f-ab0c-5884d0b5628c.png">
+
+그래서 `C` 랑 호환할때 문제가 발생할 수 있음
+
+스위프트는 `Type Safety` 를 중요시하면서도 `C-Family Code` 접근도 중요시함
+
+그래서 문제 해결하는데 `C++` `Interop` 추가
+<img width="693" alt="Screen Shot 2022-06-20 at 5 06 44 PM" src="https://user-images.githubusercontent.com/33091784/174554919-2c5dc6a6-7a10-4c8b-a528-609e130b9dda.png">
+
+
+## String Processing
+<img width="693" alt="Screen Shot 2022-06-20 at 5 07 06 PM" src="https://user-images.githubusercontent.com/33091784/174554974-b6380a7a-f84d-4153-8181-b96b2abbea79.png">
+
+문자열 조작하기 어려웠다(인정)
+근데  `Regex` 도 굉장히 어려움
+
+그래서 쉬운 `Regex` 만듬!
+`SwiftUI` 처럼 가독성 좋고 선언형 `Regex` `Syntax` 제공
+
+<img width="693" alt="Screen Shot 2022-06-20 at 5 10 21 PM" src="https://user-images.githubusercontent.com/33091784/174555600-e850fe84-2deb-476e-a798-35f87de89049.png">
+
+<img width="454" alt="Screen Shot 2022-06-20 at 5 12 27 PM" src="https://user-images.githubusercontent.com/33091784/174556052-8b26ca61-3686-4d0c-aa22-9809f93b929c.png">
+
+## Generic Code Clarity
+
+<img width="454" alt="Screen Shot 2022-06-20 at 5 13 26 PM" src="https://user-images.githubusercontent.com/33091784/174556250-2b0d7f82-86b0-46fd-abc6-5bedbe10fef3.png">
+
+<img width="673" alt="Screen Shot 2022-06-20 at 5 13 53 PM" src="https://user-images.githubusercontent.com/33091784/174556332-2990a449-4ad2-4873-83fe-b68922085ca0.png">
+
+두가지 버전의 프로토콜 메서드인데 `Syntax` 가 같아서 `Mailmap` 의 차이를 알기 어려움
+
+
+
+<img width="673" alt="Screen Shot 2022-06-20 at 5 15 49 PM" src="https://user-images.githubusercontent.com/33091784/174556690-e572f124-5c43-47bd-927d-fd4f9496d98e.png">
+
+프로토콜을 다음과 같은 곳에서 사용하면
+- Generic Parameter List
+- Inheritance List
+- Generic Conformance Constraint
+- Opaque Result Type
+-> **프로토콜을 채택한 인스턴스를 의미** ("Something that conforms to Mailmap)
+
+반대로
+
+프로토콜을 다음과 같은 곳에서 사용하면
+- 변수
+- Generic Argument
+- Generic Same-type constraint
+- Function Parameter/Result Type
+-> **프로토콜에 채택하는 것들이 모인 곳** ("A box whose contents conform to Mailmap")
+
