@@ -177,3 +177,16 @@ value 를 수정하면서 읽기가 안됨
 - Function Parameter/Result Type
 -> **프로토콜에 채택하는 것들이 모인 곳** ("A box whose contents conform to Mailmap")
 
+<img width="673" alt="Screen Shot 2022-06-20 at 5 28 47 PM" src="https://user-images.githubusercontent.com/33091784/174559229-8ec17ad2-2c94-4b8c-9d1c-a63a66c99a74.png">
+
+스위프트 5.7부터는 `Box` 를 사용할때는 앞에 `any` 키워드를 사용해아됨
+
+<img width="673" alt="Screen Shot 2022-06-20 at 5 29 11 PM" src="https://user-images.githubusercontent.com/33091784/174559313-1ad468f6-c55c-4e12-8ca4-6799b13213a8.png">
+
+
+
+<img width="673" alt="Screen Shot 2022-06-20 at 5 29 42 PM" src="https://user-images.githubusercontent.com/33091784/174559431-e3d58b5f-5550-4647-aa8e-e448dc8fdf0e.png">
+그럼 좀 구분이 됨
+
+<img width="673" alt="Screen Shot 2022-06-20 at 5 36 13 PM" src="https://user-images.githubusercontent.com/33091784/174560708-16f4a64a-1af7-45e8-81de-33085f9b8d8d.png">
+
