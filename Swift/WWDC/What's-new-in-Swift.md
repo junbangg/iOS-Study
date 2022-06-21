@@ -27,7 +27,6 @@ Command Plugins
 
 Module Disambiguation
 - Allows you to rename modules from outside packages that define them
-- 
 
 # Performance Improvements
 
