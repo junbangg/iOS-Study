@@ -12,26 +12,26 @@
 **Asynchronous**: Frees thread to do other things, completionHandler is used to notify end of function.
 
 # Example: Fetching a Thumbnail
-
-![Screen Shot 2022-06-23 at 4.42.08 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d8733034-b2db-47fe-a04b-e322fd6772b0/Screen_Shot_2022-06-23_at_4.42.08_PM.png)
+<img width="1164" alt="Screen Shot 2022-06-23 at 4 42 08 PM" src="https://user-images.githubusercontent.com/33091784/175307777-94366493-351c-476d-af9a-12d3095da82e.png">
 
 여기서 각 메서드는 직전 메서드 결과에 의존한다. 즉, 직전의 결과값을 이용해서 호출된다.
 
-![Screen Shot 2022-06-23 at 4.43.46 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5937c5c1-2cb3-4632-8334-91e405fa93eb/Screen_Shot_2022-06-23_at_4.43.46_PM.png)
+<img width="1164" alt="Screen Shot 2022-06-23 at 4 43 46 PM" src="https://user-images.githubusercontent.com/33091784/175307814-1b474677-c6ec-467b-9f62-a46d1ec2fe52.png">
 
 얘네들은 synchronous 해도 된다. 
 
-![Screen Shot 2022-06-23 at 4.44.23 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/344a894c-ba73-4bcf-b172-059a1746acbc/Screen_Shot_2022-06-23_at_4.44.23_PM.png)
+<img width="1164" alt="Screen Shot 2022-06-23 at 4 44 23 PM" src="https://user-images.githubusercontent.com/33091784/175307858-8ba66175-b6cc-4f56-a25e-5ca404ad3bf9.png">
+
 
 얘네들은 asynchronous.(시간이 걸리기 때문에)
 
 # Before Async/await
 
-![Screen Shot 2022-06-23 at 4.47.08 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4460b8d9-82b2-4727-b88e-d49f3b9597b0/Screen_Shot_2022-06-23_at_4.47.08_PM.png)
+<img width="1185" alt="Screen Shot 2022-06-23 at 4 47 08 PM" src="https://user-images.githubusercontent.com/33091784/175307889-85c6d4a9-9cd1-4332-a205-7e0df520a701.png">
 
-![Screen Shot 2022-06-23 at 4.47.35 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/264b18d8-b6d1-48ea-978f-1006a0ce725e/Screen_Shot_2022-06-23_at_4.47.35_PM.png)
+<img width="1312" alt="Screen Shot 2022-06-23 at 4 47 35 PM" src="https://user-images.githubusercontent.com/33091784/175307921-c5e1907c-eca7-42de-b694-9f2401805e92.png">
 
-![Screen Shot 2022-06-23 at 4.48.44 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e706414-3d5f-40d7-9583-8a891d00cba8/Screen_Shot_2022-06-23_at_4.48.44_PM.png)
+<img width="1312" alt="Screen Shot 2022-06-23 at 4 48 44 PM" src="https://user-images.githubusercontent.com/33091784/175307940-91a0b5a7-d324-4feb-953f-3351ff79359c.png">
 
 여기서 첫번째 문제?
 
@@ -41,13 +41,13 @@
 
 이걸 수정하면 다음과 같다
 
-![Screen Shot 2022-06-23 at 4.59.35 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5be7d394-3007-4652-b3d5-8f1d619877f9/Screen_Shot_2022-06-23_at_4.59.35_PM.png)
+<img width="1164" alt="Screen Shot 2022-06-23 at 4 59 35 PM" src="https://user-images.githubusercontent.com/33091784/175307996-899551bb-c745-4143-af81-e6fedc72f24b.png">
 
 근데 이건 스위프트가 잘못됐다고 알려주질 않는다, 즉 **컴파일 에러** 가 발생 하지않는다
 
 대안으로는 `Result` 를 사용하는 것
 
-![Screen Shot 2022-06-23 at 5.03.32 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d700aa75-d50d-4e69-824e-82b95cbf3d17/Screen_Shot_2022-06-23_at_5.03.32_PM.png)
+<img width="1232" alt="Screen Shot 2022-06-23 at 5 03 32 PM" src="https://user-images.githubusercontent.com/33091784/175308023-19b0fa21-59a7-401d-95f7-1921c46dbee8.png">
 
 - 코드가 근데 길어지고 지저분해진다
 
@@ -82,22 +82,22 @@ func fetchThumbnail(for id: String) async throws -> UIImage {
 
 위 코드에서 조금 특이했던 `await maybeImage?.thumbnail` 은 다음과 같은 `extension` 으로 구현됐다.
 
-![Screen Shot 2022-06-23 at 6.10.18 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/84e4d2eb-9ce4-4b6e-9776-47833921ce16/Screen_Shot_2022-06-23_at_6.10.18_PM.png)
+<img width="1232" alt="Screen Shot 2022-06-23 at 6 10 18 PM" src="https://user-images.githubusercontent.com/33091784/175308073-64b52d88-def3-4c67-92dd-e6066d13cc1c.png">
 
 - 스위프트 5.5 이후로는 프로퍼티 `getter` 도 `throw` 할 수 있다.
-
-![Screen Shot 2022-06-23 at 6.12.20 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/24ac91a1-c67a-4de9-80b5-14ba844c1db9/Screen_Shot_2022-06-23_at_6.12.20_PM.png)
+- 
+<img width="1232" alt="Screen Shot 2022-06-23 at 6 12 20 PM" src="https://user-images.githubusercontent.com/33091784/175308089-abcfad77-227d-4d8d-a8b1-b4f4548ae002.png">
 
 - 반복문으로도 가능
 
 ## `async` 함수가 `suspend` 되다?
 
-![Screen Shot 2022-06-23 at 6.15.10 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f47b81a-0700-4085-807d-9a04afe68404/Screen_Shot_2022-06-23_at_6.15.10_PM.png)
+<img width="1379" alt="Screen Shot 2022-06-23 at 6 15 10 PM" src="https://user-images.githubusercontent.com/33091784/175308105-b10643d4-2090-4eb5-ab7f-6e7cd5e1bc56.png">
 
 - `thumbnailURLRequest` 가 호출되면 끝날때까지 스레드를 계속 차지한다.
 - 끝나면 다시 `fetchThumbnail` 이 스레드를 차지
 
-![Screen Shot 2022-06-23 at 6.21.02 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/995742ff-a995-4012-b103-183c43e41e7b/Screen_Shot_2022-06-23_at_6.21.02_PM.png)
+<img width="1379" alt="Screen Shot 2022-06-23 at 6 21 02 PM" src="https://user-images.githubusercontent.com/33091784/175308126-962cbf38-e7e8-49f3-b7e2-cd4f35acade0.png">
 
 - 위랑 마찬가지로 함수 호출이 끝나면 `fetchThumbnail` 한테 쓰레드를 돌려주지만, `suspend` 를 통해 조금 다르게 동작할 수 있다.
 - `fetchThumbnail` 에서 `data(for: request)` 를 호출하면, `suspend` 라는것을 할 수 있다. 이때, 쓰레드를 `fetchThumbnail` 을 돌려주는 것이 아니라, `system` 한테 준다. (이때 `fetchThumbnail` 도 `suspend` 된다)
@@ -127,38 +127,38 @@ func fetchThumbnail(for id: String) async throws -> UIImage {
     
     예시 시나리오:
     
-    ![Screen Shot 2022-06-23 at 7.51.12 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a168e171-43e3-4f6a-97c2-dade25d6b899/Screen_Shot_2022-06-23_at_7.51.12_PM.png)
+    <img width="1379" alt="Screen Shot 2022-06-23 at 7 52 27 PM" src="https://user-images.githubusercontent.com/33091784/175308222-679947e2-1c97-4340-b72b-211c45d94bb7.png">
+
+
     
     - `data()` 가 호출된 후에 사용자 입력이 발생
-    
-    ![Screen Shot 2022-06-23 at 7.52.27 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3fee9825-63e2-452a-9a1c-2007cea5831b/Screen_Shot_2022-06-23_at_7.52.27_PM.png)
+    <img width="1379" alt="Screen Shot 2022-06-23 at 7 51 12 PM" src="https://user-images.githubusercontent.com/33091784/175308187-88e44bea-5183-45d3-a24a-d3c2c02de41e.png">
     
     - 그럼 일단 그게 더 중요하기 때문에 `data` 의 일은 잠시 중단
     - 그다음에 순차적으로 작업들이 완료되면 `fetchThumbnail` 메서드도 반환된다.
 
 # `async/await` 정리
 
-![Screen Shot 2022-06-23 at 7.56.18 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6c77b8e0-a487-4f7d-b2a4-5b36bd28d423/Screen_Shot_2022-06-23_at_7.56.18_PM.png)
+<img width="681" alt="Screen Shot 2022-06-23 at 7 56 18 PM" src="https://user-images.githubusercontent.com/33091784/175308505-90d0d54f-1416-4700-a8e7-4bd3b61c1429.png">
 
 # Testing async code
 
 ### Before
-
-![Screen Shot 2022-06-23 at 7.58.02 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d542db1d-5f21-4038-9bed-f04be8595912/Screen_Shot_2022-06-23_at_7.58.02_PM.png)
+<img width="1289" alt="Screen Shot 2022-06-23 at 7 58 02 PM" src="https://user-images.githubusercontent.com/33091784/175308534-ab76cefa-ab24-4533-a727-831c6ed02117.png">
 
 ### After
 
-![Screen Shot 2022-06-23 at 7.59.33 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f289bf98-ade2-4cac-85de-0f45370a844d/Screen_Shot_2022-06-23_at_7.59.33_PM.png)
+<img width="1289" alt="Screen Shot 2022-06-23 at 7 59 33 PM" src="https://user-images.githubusercontent.com/33091784/175308560-a2b710af-b5ba-42fe-a4f7-f5020f7b0876.png">
 
 # Bridging from sync to async
 
 ### Before
 
-![Screen Shot 2022-06-23 at 8.01.05 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df7b500f-ee8c-4ed1-ae8f-4b18209d62f2/Screen_Shot_2022-06-23_at_8.01.05_PM.png)
+<img width="1289" alt="Screen Shot 2022-06-23 at 8 01 05 PM" src="https://user-images.githubusercontent.com/33091784/175308596-733fda94-aa98-471a-9549-4c91938df3c8.png">
 
 # After
 
-![Screen Shot 2022-06-23 at 9.36.50 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dde27c8e-221f-408c-8534-40bb4114a38d/Screen_Shot_2022-06-23_at_9.36.50_PM.png)
+<img width="1289" alt="Screen Shot 2022-06-23 at 9 36 50 PM" src="https://user-images.githubusercontent.com/33091784/175308615-35686ed7-d0ce-4089-9be7-1266fd92d99d.png">
 
 이때 `.onAppear` 는 `UI` 관련된거라 메인 스레드..즉, 동기로 작동됨
 
@@ -172,23 +172,23 @@ func fetchThumbnail(for id: String) async throws -> UIImage {
 
 이걸 사용하는 이점은, `sync` 컨텍스트 안에서 `async` 를 사용할 수 있다는 것이다.
 
-![Screen Shot 2022-06-23 at 9.53.52 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be1f5936-8882-4bbc-b538-b87ab2d5af4f/Screen_Shot_2022-06-23_at_9.53.52_PM.png)
+<img width="1289" alt="Screen Shot 2022-06-23 at 9 53 52 PM" src="https://user-images.githubusercontent.com/33091784/175308649-226693ab-75eb-4fb5-8e9c-51638985261f.png">
 
 # Async APIs in the SDK
 
 ## Before
 
-![Screen Shot 2022-06-23 at 9.56.16 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20b73700-478c-4bac-9f98-a2934e440e1a/Screen_Shot_2022-06-23_at_9.56.16_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 9 56 16 PM" src="https://user-images.githubusercontent.com/33091784/175308681-ad412e17-b07a-4dcd-a50c-c69ea2cc3cab.png">
 
 ## After
 
 스위프트 5.5 부터
 
-![Screen Shot 2022-06-23 at 9.56.45 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6f4d7037-6031-4128-a0d9-d80febd4a460/Screen_Shot_2022-06-23_at_9.56.45_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 9 56 45 PM" src="https://user-images.githubusercontent.com/33091784/175308703-c03ac882-483b-43af-9e44-3056967c8f10.png">
 
 ## Before
 
-![Screen Shot 2022-06-23 at 9.58.11 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b75f07f-67a7-4d54-95fd-c87429b9b856/Screen_Shot_2022-06-23_at_9.58.11_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 9 58 11 PM" src="https://user-images.githubusercontent.com/33091784/175308727-0fc354f7-05da-4007-9209-c1c55515957f.png">
 
 ## After
 
@@ -196,27 +196,27 @@ func fetchThumbnail(for id: String) async throws -> UIImage {
 
 `async` 를 사용하는 함수에서는 앞에 `get` 를 빼라 (왜냐하면 바로 `get` 하지를 못하니까)
 
-![Screen Shot 2022-06-23 at 9.59.54 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6eb931c8-0676-4eee-825f-5b4fdacd2e53/Screen_Shot_2022-06-23_at_9.59.54_PM.png)
+![Screen Shot 2022-06-23 at 10 24 57 PM](https://user-images.githubusercontent.com/33091784/175309709-ec092d08-7561-4c9d-96a4-b3654135b5b3.png)
 
 # Async alternatives and continuations
 
-![Screen Shot 2022-06-23 at 10.01.06 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/12da81cb-01fd-4d14-801b-77978932f2e1/Screen_Shot_2022-06-23_at_10.01.06_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 01 06 PM" src="https://user-images.githubusercontent.com/33091784/175308797-645f02ba-9fb3-49a2-9a80-b6d5cd499380.png">
 
-![Screen Shot 2022-06-23 at 10.02.25 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18101132-2eb2-4942-9dce-9a8af12a45d5/Screen_Shot_2022-06-23_at_10.02.25_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 02 25 PM" src="https://user-images.githubusercontent.com/33091784/175308826-3f60c0b2-e20f-4171-84e0-233891f96bf8.png">
 
 - `getPresistentPosts` 의 결과를 기다리고있는 `persistentPosts` 한테 반환할 방법을 생각해야된다
 - `getPersistentPosts` 가 호출될때 `persistentPosts` 는 현재 `suspended` 돼있다.
 - 올바른 데이터를 올바른 타이밍에 `resume` 해야된다
 
-![Screen Shot 2022-06-23 at 10.06.27 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5a0646b-85ac-4848-b981-8f0af20272b7/Screen_Shot_2022-06-23_at_10.06.27_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 06 27 PM" src="https://user-images.githubusercontent.com/33091784/175308858-4edf7945-51a3-47e6-b7cc-d06fd2bcaa06.png">
 
 - `await` 다음에 콜이 끝나면 `resume` 이 된다.
 
-![Screen Shot 2022-06-23 at 10.08.49 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/66920fbb-503a-4f1c-985f-4f9dfa8effc6/Screen_Shot_2022-06-23_at_10.08.49_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 08 49 PM" src="https://user-images.githubusercontent.com/33091784/175308874-cdb41522-6d5a-47d5-9de7-8c9f4094c9ea.png">
 
-![Screen Shot 2022-06-23 at 10.09.06 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c581dfc3-baf3-44d1-88c6-0ca5645fba2f/Screen_Shot_2022-06-23_at_10.09.06_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 09 06 PM" src="https://user-images.githubusercontent.com/33091784/175308901-6457c62b-1aef-4078-9258-233374415473.png">
 
-![Screen Shot 2022-06-23 at 10.09.32 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4862682d-6764-41c4-a499-65d1020c92ab/Screen_Shot_2022-06-23_at_10.09.32_PM.png)
+<img width="1365" alt="Screen Shot 2022-06-23 at 10 09 32 PM" src="https://user-images.githubusercontent.com/33091784/175310163-e6355972-4cdf-4f1f-8e0f-3265cb15a953.png">
 
 런타임 오류가 발생시켜준다
 
