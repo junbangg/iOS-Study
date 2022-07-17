@@ -14,6 +14,7 @@
 - 생성시에 바로 이벤트를 방출하기 시작할 수 있다.
     - 그래서 `subscribe` 하기 전에 방출되는 이벤트들을 놓칠 수도 있다.
     - 이를 방지하기위해 `Cold Observable` 를 사용하면 된다.
+
 ![Screen Shot 2022-07-17 at 9 59 54 PM](https://user-images.githubusercontent.com/33091784/179399512-4228542d-7a4c-41d9-82a2-525fa91297dc.png)
 
 - `Observable`이 오류와 함께 죽으면, `Publish Subject`는 오류를 그대로 다른 `Observer` 들한테 전달한다.
