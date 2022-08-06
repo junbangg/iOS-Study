@@ -6,28 +6,32 @@
 
 emit : 이벤트를 계속해서 비동기적으로 생성하는 기능
 
+<br />
+
 **sequence란?**
 
 Observable = Observable sequence = sequence
 
 Observable 이벤트들은 sequence라고 할 수 있다.
 
+<br />
+
 ### **이벤트의 종류**
 
 - next
     - 구성 요소를 계속해서 방출할 수 있는 기능 (= observable 구독자에게 데이터 전달)
     
-    ![Untitled](Observable%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%2029755755cc8d4c23bac27bfa6afe7a06/Untitled.png)
+    ![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fxn3J2%2FbtrI1Vh6qHp%2F2X0BamiWwhcx4737NJSxRk%2Fimg.png)
     
 - completed
     - 성공적으로 next이벤트가 완료되었을 때 발생하며, 이벤트를 종료시킨다. (= observable 구독자에게 완료되었음을 알림)
     
-    ![Untitled](Observable%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%2029755755cc8d4c23bac27bfa6afe7a06/Untitled%201.png)
+    ![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbbv5Cz%2FbtrI7MDFUUr%2FXNGUfnIJLLjmp0z05zmdKK%2Fimg.png)
     
 - error
     - 이벤트에 오류가 있음을 알고 중간에 스트림을 종료시킬 수 있는 기능 (observable 구독자에게 오류를 알린다.)
     
-    ![Untitled](Observable%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%2029755755cc8d4c23bac27bfa6afe7a06/Untitled%202.png)
+    ![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fk7XCa%2FbtrI1U4wFYX%2FXQf8BqPkeW7tQO1TisHKF1%2Fimg.png)
     
 
 ```swift
@@ -48,12 +52,16 @@ API.download(file: "http://www...")
 - Observable 타입들은 모두 Disposable 타입을 반환한다. 이 값을 이용해 스트림을 종료시키고 작업을 종료한다.
 - **구독자는 방출하는 이벤트를 전달받고 각 상황에 따라 액션을 취한다.**
 
+<br />
+
 ### Subscribe
 
 - 이벤트에 대한 처리
 - 필요한 이벤트에 대해서만 골라서 처리할 수 있다.
 - 이벤트에 대한 처리를 클로저 내부에서 진행한다. 따라서 약한 참조를 꼭 해서 메모리 누수를 방지해야 한다. (클로저 내부에서 self를 참조하는 경우에만 해당)
 - .subscribe는 정수의 이벤트 객체를 파라미터로 하는 escaping 클로저 형식 메소드, 반환값은 Disposable이다.
+
+<br />
 
 ### dispose
 
@@ -80,10 +88,16 @@ example(of: "DisposeBag") {
 }
 ```
 
+<br />
+
 ### 참고
 
 - [https://ios-development.tistory.com/97](https://ios-development.tistory.com/97)
 - [https://jinshine.github.io/2019/01/02/RxSwift/2.Observable이란/](https://jinshine.github.io/2019/01/02/RxSwift/2.Observable%EC%9D%B4%EB%9E%80/)
+
+<br />
+
+# Obervable method
 
 ## just
 
@@ -96,27 +110,31 @@ let justStringObservable = Obse1rvable.just("hello world")
 let justIntObservable = Observable.just(100)
 ```
 
+<br />
+
 ## of
 
 **여러 개의 요소들을 순차적으로 방출한다.**
 
-![Untitled](Observable%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%2029755755cc8d4c23bac27bfa6afe7a06/Untitled%203.png)
-
 ```swift
-let ofObservable = Observable.of("hi", "my", "name", "is", "Avocado🥑")
+let ofObservable = Observable.of("hi", "my", "name", "is", "jane")
 ```
 
 of() 안에 들어가는 요소들은 **하나의 타입으로 통일**시켜야 한다.
+
+<br />
+
 
 ## from
 
 **배열로 요소를 받은 후에 하나하나 요소로서 방출해주는 연산자이다.**
 
-![Untitled](Observable%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%2029755755cc8d4c23bac27bfa6afe7a06/Untitled%204.png)
 
 ```swift
-let fromObservable = Observable.from(["Avocado🥑", "is", "green"])
+let fromObservable = Observable.from(["jane", "is", "green"])
 ```
+
+<br />
 
 ## range
 
@@ -126,6 +144,8 @@ let fromObservable = Observable.from(["Avocado🥑", "is", "green"])
 let rangeObservable = Observable.range(start: 0, count: 10)
 ```
 
+<br />
+
 ## empty
 
 **빈 Observable을 선언(옵저버블 초기화)하거나 즉시 completed 되는 옵저버블을 리턴하고자 할 때 사용한다.**
@@ -133,6 +153,8 @@ let rangeObservable = Observable.range(start: 0, count: 10)
 ```swift
 let emptyObservable: Observable = Observable<Any>.empty()
 ```
+
+<br />
 
 ## never
 
@@ -144,6 +166,8 @@ onDisposed 제외!
 let neverObservable = Observable<Int>.never()
 ```
 
+<br />
+
 ## create
 
 create 연산자는 **내가 원하는 시점에서 이벤트를 방출 시킬 수 있게 도와주는 것**이다.
@@ -153,7 +177,7 @@ create 연산자는 **내가 원하는 시점에서 이벤트를 방출 시킬 �
 ```swift
 func customObservable() **-> Observable<String>** {
     **return Observable<String>.create** { observer in
-        observer.onNext("hi i'm Avocado🥑")
+        observer.onNext("hi i'm jane")
         observer.onCompleted()
         
         return Disposables.create()
@@ -196,13 +220,15 @@ func getFriends() -> Observable<[Friend]> {
 }
 ```
 
+<br />
+
 ## deferred
 
 **deferred**는 **Observable**이 **생성되는 시점을 구독자에 의해서 구독되기 전까지 미뤄주는 역할**을 한다.
 
 ```swift
 let deferredOb = Observable<String>.deferred {
-    return Observable.just("Avocado🥑")
+    return Observable.just("jane")
 }
 ```
 
