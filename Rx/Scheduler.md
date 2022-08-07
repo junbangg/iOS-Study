@@ -6,9 +6,11 @@
 
 특정 코드가 실행되는 Context를 추상화한 것이다.
 
-![Untitled](%5BRxSwift%5D%20Scheduler%20f6ffa4b2a1d8448d832debcf56674d3b/Untitled.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcAOtGg%2FbtrI1WaFz5G%2FDXJJBEtDK4HeECrZLy2BAk%2Fimg.png)
 
 Cocoa에서는 Main Queue를 사용하지만 RxSwift에서는 MainScheduler를 사용한다.
+
+<br />
 
 **연산자**
 
@@ -16,6 +18,8 @@ Cocoa에서는 Main Queue를 사용하지만 RxSwift에서는 MainScheduler를 �
 - observeOn : Observer가 Observable을 어디서 observe할 것인지
 
 일반적으로 subscribeOn(*:)은 Background Thread에서, observeOn(*:)은 Main Thread에서 사용
+
+<br />
 
 ## observeOn vs subscribeOn
 
@@ -78,13 +82,16 @@ observeOn : operator(map, filter, etc)와 subscribe 작업을 다른 스케줄�
 
 subscribeOn : observable을 특정 스케줄러에서 생성하고 싶을 때 사용.
 
+<br />
+
+
 ## Scheduler의 종류
 
 Serial Scheduler를 사용한다면 Rx는 직렬적으로 진행한다.
 
 Concurrent Scheduler를 사용한다면, Rx는 동시에 진행한다.
 
-![Untitled](%5BRxSwift%5D%20Scheduler%20f6ffa4b2a1d8448d832debcf56674d3b/Untitled%201.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbSXTMP%2FbtrI2YZTpBd%2F8h1e4DXhC9nZ4lo3dLFRH0%2Fimg.png)
 
 ### 1) MainScheduler
 
@@ -129,6 +136,8 @@ XCTAssertEqual(res.events, [
     completed(300)
 ])
 ```
+
+<br />
 
 참고:
 
