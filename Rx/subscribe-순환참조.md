@@ -3,11 +3,12 @@
 `closure`에서 순환참조를 예방해야되듯이 `subscribe`에서도 마찬가지로 예방해야된다.
 
 ## 막는 방법
-```swift
-1. `weak` 사용 
+1. `weak` 사용
 
 아래와 같이 `subscribe` 클로져 내부에서 일반적인 클로져를 사용할때랑 똑같이
 캡쳐 리스트를 이용해서 순환참조를 예방할 수 있다.
+
+```swift
 
 downloadJSON(from: url)
     .subscribe { [weak self] event in
@@ -87,7 +88,8 @@ do {
 
 4. `withunretained()` 
 
-생긴지 얼마안된 
+아직 많이 못봐서 잘 모르는데 사용 방법은 다음과 같은걸로 알고있다.
+
 ```swift
 viewModel.data
     .subscribe{ [weak self] info in 
@@ -108,3 +110,5 @@ viewModel.data
     .disposed(on: disposeBag)
 ```
 이렇게 바꿀 수 있다.
+
+원리는 추후에 다시..
