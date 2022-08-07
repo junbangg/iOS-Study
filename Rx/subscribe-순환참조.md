@@ -84,3 +84,27 @@ do {
 		disposable.dispose()
 }
 ```
+
+4. `withunretained()` 
+
+생긴지 얼마안된 
+```swift
+viewModel.data
+    .subscribe{ [weak self] info in 
+        guard let self = self else {
+	  return
+	}
+        self.doSomething(with: info)
+    }
+    .disposed(on: disposeBag)
+```
+위 코드를
+```swift
+viewModel.data
+    .withunretained(self)
+    .subscribe{
+        self.doSomething(with: info)
+    }
+    .disposed(on: disposeBag)
+```
+이렇게 바꿀 수 있다.
