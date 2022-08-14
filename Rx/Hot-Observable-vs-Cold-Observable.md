@@ -25,11 +25,20 @@
 
 - 구독하는 시점부터 이벤트를 생성하여 방출
 - 해당 `Observable`에 구독하는 `Observer`는 모든 이벤트를 관찰할 수 있다.
+- 상태를 저장한다기보다는 Observer들이 구독을 시작했을 때, 처음부터 끝까지의 이벤트 스트림을 받아볼 수 있다. 즉, 모든 시점에 대한 스트림 이벤트를 받아볼 수 있다. 
+- Hot Observable과는 다르게 각 리소스에 대해 공유가 불가능하다.
+- 구독하는 즉시 이벤트가 방출되기 때문에 Observer들이 다 다른 인스턴스들을 공유하게 됩니다.
 - 일반적인 웹 요청, 데이터베이스 쿼리 등이 사용되며 내가 요청하면 결과를 받는 과정을 거친다.
 - 스트림을 분기시키는 성질을 가지고 있지 않다. 따라서, `Cold Observable` 을 여러번 `subscribe`하는 경우, 각각 별도의 스트림이 생성되고 할당되게 한다.
 - 보통 한개의 이벤트로 구성
 - stateless
 
+### 이해를 돕는 예시
+Hot Observable이 라이브 스트리밍이었다면 Cold Observable 는 VOD로 설명할 수 있다. 
+- 언제부터 시청을 하더라도 처음부터 끝까지 원하는 부분을 시청하는 것이 가능
+- 실제 사용 예시:
+    - Single, just, of 등등의 컴포넌트 들이 해당됨.
+    - 보통 HTTP 요청으로 Observable을 생성해서 사용하는 경우가 가장 대표적인 예.
 
 # 참고
 - https://github.com/ReactiveX/RxSwift/blob/main/Documentation/HotAndColdObservables.md
