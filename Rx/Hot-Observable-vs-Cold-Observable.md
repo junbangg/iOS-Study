@@ -40,6 +40,11 @@ Hot Observable이 라이브 스트리밍이었다면 Cold Observable 는 VOD로 
     - Single, just, of 등등의 컴포넌트 들이 해당됨.
     - 보통 HTTP 요청으로 Observable을 생성해서 사용하는 경우가 가장 대표적인 예.
 
+## 추가 내용
+RxSwift에서 Cold Observable을 Hot Observable처럼 사용할 수 있는 방법도 존재하고 Hot Observable을 Cold Observable처럼 사용할 수 있는 방법이 존재한다. 
+
+- 예시로 Hot Observable을 Cold Observable처럼 사용할 수 있는 방법은 `RelaySubject`를 이용하는 방법이 있다.
+
 # 참고
 - https://github.com/ReactiveX/RxSwift/blob/main/Documentation/HotAndColdObservables.md
 - https://velog.io/@okstring/Hot-vs-Cold-Observable-%EA%B0%84%EB%9E%B5%ED%95%98%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0
