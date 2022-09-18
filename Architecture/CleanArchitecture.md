@@ -4,7 +4,7 @@
 
 Robert C Martin(Uncle Bob)가 제안한 아키텍처로, 아래사진처럼 앱 아키텍쳐를 구성한 것을 Clean Architecture라고 한다.
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbWMRAV%2FbtqFKC0qasx%2FjjFOnehurZAaf2gtGJscr0%2Fimg.png)
 
 ### 1) 원들의 관계
 
@@ -36,11 +36,11 @@ Robert C Martin(Uncle Bob)가 제안한 아키텍처로, 아래사진처럼 앱 
 
 # MVVM-Clean Architecture
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled%201.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyoKKQ%2FbtqFKl5Y86D%2F3ZD7kkO3Nkw7FIZK9g8cDk%2Fimg.png)
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled%202.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbHEH6y%2FbtqFKMhY1wf%2FTed9svEN3OwQzwt1gij7ek%2Fimg.jpg)
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled%203.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbOX0P0%2FbtqFK2q3TWe%2FXi8TCdfPHkWd9XiZlZuDR0%2Fimg.png)
 
 1. **Domain Layer**
     - 클린 아키텍처 원에서 **Entities와 Use Case를 묶어서** 도메인 레이어이다.
@@ -59,7 +59,7 @@ Robert C Martin(Uncle Bob)가 제안한 아키텍처로, 아래사진처럼 앱 
 
 **총집합**
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled%204.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMQ1R1%2FbtqFKDrPxtp%2Fpjv2GVcCJ7ubcfjq8ZxQkK%2Fimg.png)
 
 ## MVVM-Clean 아키텍처의 데이터 플로우
 
@@ -83,7 +83,6 @@ Robert C Martin(Uncle Bob)가 제안한 아키텍처로, 아래사진처럼 앱 
 
 클린 아키텍처의 핵심은 **내부에 있는 계층이 외부에 있는 계층을 알지 못하게 하는 것**에 있다. 즉, Domain 레이어는 Presentaion 레이어나 Data 레이어를 절대 직접 참조하지 않는다. 그래서 각 계층 간 의존성의 방향은 다음과 같다.
 
-![Untitled](Clean%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%202f81406ab00b420fb567a79612ceb369/Untitled%205.png)
 
 ### 계층을 나누어서 개발하면 좋은 이유
 
