@@ -6,15 +6,17 @@
 
 즉, 데이터 가공이 필요할 때 `map`을 사용한다.
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FM8HUC%2FbtrLkawkucG%2FCTungnJck47jKvPm9CYzCK%2Fimg.png)
 
 ```swift
 observable()
-    **.map{ String($0) }**
+    .map{ String($0) }
     .subscribe(onNext: { grade in
         print("\(grade)")
     }).disposed(by: disposeBag)
 ```
+
+<br />
 
 ## filter
 
@@ -22,15 +24,18 @@ observable()
 
 **Observable**에서 방출되는 요소를 조건에 맞게 걸러서 구독자에게 전달해주고 싶을 때 사용한다.
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled%201.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWYHdj%2FbtrLhQFzjFH%2FWKHqV6PXweVctdIOtEn481%2Fimg.png)
 
 ```swift
-phoneNumberObservable()**.filter { phoneNumber in
+phoneNumberObservable()
+.filter { phoneNumber in
     return phoneNumber.hasPrefix("010")
-}**.subscribe(onNext: { filteredNumber in
+}.subscribe(onNext: { filteredNumber in
     print(filteredNumber)
 }).disposed(by: disposeBag)
 ```
+
+<br />
 
 ## take
 
@@ -39,11 +44,13 @@ phoneNumberObservable()**.filter { phoneNumber in
 **Observable 시퀀스**에서 방출되는 요소들을 `n개`로 제한하고 싶은 경우 take(count: **n**) 이런식으로 제한해서 사용한다.
 
 ```swift
-observable()**.take(3)**
+observable().take(3)
     .subscribe(onNext: { element in
         print("\(element)를 받았습니다.")
     }).disposed(by: disposeBag)
 ```
+
+<br />
 
 ## combineLatest
 
@@ -51,16 +58,16 @@ observable()**.take(3)**
 
 현재 방출된 요소와 다른 **Observable**에서 방출된 최종값을 비교하고 싶은일이 있다면 **combineLatest**를 사용한다.
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled%202.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCKlGh%2FbtrLqcUhAH9%2FUYSBZyV7UM4XEvCeD38FkK%2Fimg.png)
 
 ```swift
-Observable**.combineLatest(first, second)**
+Observable.combineLatest(first, second)
     .subscribe(onNext: { element in
         print(element)
     }).disposed(by: disposeBag)
 ```
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled%203.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbnH7aS%2FbtrLmyKebdr%2F8bpfmXjLAPDPqxSgKWjUD0%2Fimg.png)
 
 ```swift
 class ViewController: UIViewController {
@@ -89,24 +96,26 @@ class ViewController: UIViewController {
 }
 ```
 
+<br />
+
 ## withLatestFrom
 
 **withLatestFrom**은 다른 Observable에서 이벤트가 방출됨에 따라 이벤트를 방출시켜주는 연산자이다.
 
 한 **Observable**에서 요소가 방출됨에 따라서 다른 **Observable**에서 가장 최근에 방출 되었던 요소를 구독자에게 전달하고 싶을 때 사용한다.
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled%204.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fww2p9%2FbtrLhOVh2LM%2FTqh0k1IdpxJRZDtaubkj9k%2Fimg.png)
 
 **trigger** **Observable**에서 요소가 방출될 때마다 **target** **Observable**에서 가장 최근에 방출되었던 요소를 전달해주는 것을 확인할 수 있다.
 
 ```swift
-trigger**.withLatestFrom(ballType)**
+trigger.withLatestFrom(ballType)
     .subscribe(onNext: { element in
         print("\(element) 발사됨")
     }).disposed(by: disposeBag)
 ```
 
-![Untitled](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/Untitled%205.png)
+![Untitled](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FYc6WB%2FbtrLqdTbH7C%2FUIy8bxcHSrfwiPFaCEU7gK%2Fimg.png)
 
 ```swift
 input.tapSignIn.withLatestFrom(Observable.combineLatest(input.email, input.password))
@@ -127,13 +136,15 @@ input.tapSignIn.withLatestFrom(Observable.combineLatest(input.email, input.passw
             }.disposed(by: disposeBag)
 ```
 
+<br />
+
 ## throttle
 
 throttle 연산자는 방출되는 요소를 받는 간격을 조절해주는 연산자이다.
 
 예를 들어서 요소를 한 번 받고 이후로 3초동안은 쉬었다가 다시 요소를 받고자할 때 사용된다.
 
-![throttle.png](Rx%20Operators(What%20i%20frequently%20used)%20d36cdb14f33d4a5096d4a95c244c416d/throttle.png)
+![throttle.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmGvKD%2FbtrLouOkLbp%2Fx5MNbfnWIyN8A4nz5Tr610%2Fimg.png)
 
 ```swift
 mypageButton.rx.tap
